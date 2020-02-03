@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Order Tracking
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-item lines="none" class="selStatus">
+        <ion-label>Select status</ion-label>
+        <ion-select interface="popover" (ionChange)="selectStatus($event)" [(ngModel)]="selectedId">
+          <ion-select-option *ngFor="let obj of arrStatus" value="{{obj.id}}">
+            {{obj.status}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ul class="stepProgress" *ngFor="let objStatus of arrStatus, let i = index;">
+        <li class="stepProgress-item" id="#{{objStatus.id}}" [ngClass]="{'is-done': objStatus.isDone}">
+          <strong>{{objStatus.status}}</strong>
+          {{objStatus.description}}
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

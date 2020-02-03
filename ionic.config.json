@@ -1,0 +1,7 @@
+{
+  "name": "nyapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
